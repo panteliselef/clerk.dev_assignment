@@ -8,8 +8,8 @@
         padding: 16px 24px;
         gap: 10px;
         margin: 1rem 0.5rem;
-        background-color: var(--card-bg-color);
-        color: var(--card-text-color);
+        background-color: rgb(var(--card-bg-color));
+        color: rgb(var(--card-text-color));
 
         flex: 0 0 calc(33.333% - 1rem);
 
@@ -18,8 +18,21 @@
         }
     }
 
+    &_pill {
+        position: absolute;
+        bottom: 0;
+        padding: 0.2rem 0.5rem;
+        font-size: c.pxToRem(10);
+        border-radius: 20px;
+        background-color: rgb(var(--card-text-color));
+        color: rgb(var(--card-bg-color));
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
     &_img {
         border-radius: 100%;
+        border: 2px solid var(--border-color);
     }
 
     &_location {
@@ -36,7 +49,7 @@
         @include b.button_base;
 
         &:focus {
-            outline: var(--card-text-color) solid 2px;
+            outline: rgb(var(--card-text-color)) solid 2px;
             outline-offset: 2px;
         }
     }

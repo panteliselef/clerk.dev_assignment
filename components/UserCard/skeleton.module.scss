@@ -13,8 +13,8 @@
         padding: 16px 24px;
         gap: 10px;
         margin: 1rem 0.5rem;
-        background-color: var(--card-bg-color);
-        color: var(--card-text-color);
+        background-color: rgb(var(--card-bg-color));
+        color: rgb(var(--card-text-color));
 
         flex: 0 0 calc(33.333% - 1rem);
 
