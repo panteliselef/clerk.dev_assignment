@@ -1,0 +1,96 @@
+@use 'design/base/colors' as u;
+@use 'design/mixins/flex' as m;
+@use 'design/base/typography' as t;
+@use 'design/base/fonts' as f;
+@use 'design/base/base' as b;
+@forward 'design/theme.scss';
+
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+html {
+    height: 100%;
+}
+
+html,
+body {
+    padding: 0;
+    margin: 0;
+    font-family: f.$primaryFont;
+    font-size: 16px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+strong {
+    color: var(--ascent-color);
+}
+
+button {
+    @include b.button_base;
+    cursor: pointer;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* Flexbox classes */
+.flex {
+    display: flex;
+}
+
+.align-flex-start {
+    align-items: flex-start;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.justify-end {
+    justify-content: flex-end;
+}
+
+.space-between {
+    justify-content: space-between;
+}
+
+.center {
+    justify-content: center;
+}
+
+.h-flex {
+    @include m.h-flex;
+}
+
+.v-flex {
+    @extend .flex;
+    flex-direction: column;
+}
+
+/* END: Flexbox classes*/
+
+.black_87 {
+    color: rgba(u.$dark1, 0.87);
+}
+
+.black_57 {
+    color: rgba(u.$dark1, 0.57);
+}
+
+.weight_400 {
+    font-weight: 400;
+}
+
+.weight_500 {
+    font-weight: 500;
+}
+
+.weight_600 {
+    font-weight: 600;
+}

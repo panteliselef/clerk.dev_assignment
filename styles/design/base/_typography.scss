@@ -1,0 +1,87 @@
+@use 'fonts' as f;
+@use 'breakpoints' as brk;
+@use 'colors' as col;
+@use 'styles/design/functions/convert' as c;
+
+@mixin heading-1 {
+    @include f.primary-font;
+    margin: 0;
+    font-weight: 700;
+    font-size: 1.875em;
+    color: col.$dark1;
+    line-height: 120%;
+    font-style: normal;
+
+    @include brk.mobile-xl {
+        font-size: 3.75em;
+    }
+}
+
+@mixin heading-2 {
+    @include f.primary-font;
+    font-weight: 700;
+    font-size: c.pxToRem(25);
+    color: col.$dark1;
+    font-style: normal;
+    line-height: 120%;
+    margin: 0;
+
+    @include brk.desktop {
+        font-size: c.pxToRem(40);
+    }
+}
+
+@mixin heading-3 {
+    @include f.primary-font;
+    font-weight: 700;
+    font-size: 1.5625em;
+    color: col.$dark1;
+    margin-bottom: 0;
+    font-style: normal;
+    line-height: 140%;
+}
+
+@mixin heading-4 {
+    @include f.primary-font;
+    font-weight: 600;
+    font-size: c.pxToRem(14);
+    color: col.$dark1;
+    margin: 0;
+    font-style: normal;
+    line-height: 140%;
+
+    @include brk.mobile-xl {
+        font-size: 1.25em;
+    }
+
+    &_same_size {
+        font-size: c.pxToRem(20);
+    }
+}
+
+@mixin p-text-1 {
+    margin: 0;
+    @include f.primary-font;
+    font-weight: 500;
+    font-size: 1em;
+    color: rgba(col.$dark1, 0.57);
+    line-height: 150%;
+
+    @include brk.desktop {
+        font-size: 1.25em;
+    }
+}
+
+@mixin p-text-2 {
+    @include f.primary-font;
+    font-size: 1em;
+    font-style: normal;
+    line-height: 160%;
+    margin: 0;
+}
+
+@mixin button-text {
+    @include f.secondary-font;
+    font-weight: 600;
+    font-size: 1em;
+}

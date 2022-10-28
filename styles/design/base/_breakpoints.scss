@@ -1,0 +1,36 @@
+$app-max-width: 647px;
+$mobile-xl: 480px;
+$tablet: 640px;
+$tablet2: 834px;
+$laptop: 1024px;
+$desktop: 1280px;
+
+@mixin mobile-xl {
+  @media (min-width: #{$mobile-xl}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$tablet}) {
+    @content;
+  }
+}
+
+@mixin tablet2 {
+  @media (min-width: #{$tablet2}) {
+    @content;
+  }
+}
+
+@mixin laptop {
+  @media (min-width: #{$laptop}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop}) {
+    @content;
+  }
+}

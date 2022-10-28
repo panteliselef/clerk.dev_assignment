@@ -1,0 +1,18 @@
+.header {
+    padding-top: 0.6em;
+    padding-bottom: 0.6em;
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+
+    box-shadow: inset 0px -1px 1px var(--border-color);
+
+    background: var(--header-color);
+    backdrop-filter: blur(5px);
+    color: var(--text-color);
+    z-index: 999;
+}
+
+.logo {
+    font-size: 2rem;
+}

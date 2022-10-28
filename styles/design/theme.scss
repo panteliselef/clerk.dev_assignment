@@ -1,0 +1,28 @@
+@use 'base/colors' as c;
+
+:root {
+    --bg-color: #{c.$light2};
+    --header-color: rgba(255, 255, 255, 0.72);
+    --text-color: #{c.$dark1};
+
+    --card-bg-color: var(--bg-color);
+    --card-text-color: var(--text-color);
+
+    --ascent-color: #{c.$green1};
+    --navbar-height: 5.5rem;
+    --duration-slow: 300ms;
+    --easing-slow-in: cubic-bezier(0.4, 0, 0.1, 1);
+    --duration-default: 200ms;
+
+    --border-color: rgb(229, 231, 235);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-color: #{c.$dark1};
+        --header-color: rgba(0, 0, 0, 0.72);
+        --text-color: #{c.$light1};
+
+        --border-color: #2c2c2c;
+    }
+}

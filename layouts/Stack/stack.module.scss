@@ -1,0 +1,10 @@
+@use 'styles/design/mixins/flex' as f;
+
+
+.asRow {
+  @include f.h-flex;
+}
+
+.asCol {
+  @include f.v-flex;
+}

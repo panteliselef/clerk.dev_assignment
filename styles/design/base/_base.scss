@@ -1,0 +1,22 @@
+@use 'styles/design/base/colors' as u;
+@use 'styles/design/mixins/flex' as m;
+@use 'styles/design/base/fonts' as f;
+@use 'styles/design/functions/convert' as c;
+@use 'styles/design/base/breakpoints' as brk;
+
+@mixin button_base {
+    @include m.h-flex;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    gap: c.pxToRem(10);
+    border-radius: 8px;
+    font-size: c.pxToRem(14);
+    font-family: f.$secondaryFont;
+    line-height: 140%;
+    border: 1px solid var(--border-color);
+    padding: 8px 12px;
+    font-weight: 500;
+    background: var(--bg-color);
+    color: var(--text-color);
+}

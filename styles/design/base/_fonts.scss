@@ -1,0 +1,11 @@
+$primaryFont: 'Plus Jakarta Sans', 'Manrope', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu,
+    Cantarell, Fira Sans, Droid Sans, Helvetica Neue, Monaco, sans-serif;
+$secondaryFont: 'Manrope', sans-serif;
+
+@mixin primary-font {
+    font-family: $primaryFont;
+}
+
+@mixin secondary-font {
+    font-family: $secondaryFont;
+}

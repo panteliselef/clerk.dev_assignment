@@ -1,0 +1,16 @@
+@use 'styles/design/base/breakpoints' as brk;
+
+.user_list {
+    &_cont {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        max-width: 1000px;
+        padding: 0 1rem;
+        width: 100%;
+
+        @include brk.tablet {
+            flex-direction: row;
+        }
+    }
+}
