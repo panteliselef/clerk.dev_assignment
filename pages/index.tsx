@@ -57,7 +57,7 @@ const HomeContent = () => {
             const r = document.querySelector(':root') as HTMLElement;
             if (r) r.style.setProperty('--card-bg-color', e.target.value);
 
-            const textColor = getContrastYIQ(e.target.value) ? '#000' : '#fff';
+            const textColor = getContrastYIQ(e.target.value) ? 'rgb(0,0,0)' : 'rgb(255,255,255)';
             r.style.setProperty('--card-text-color', textColor);
             syncToLocalStorage({
                 carBgColor: e.target.value,

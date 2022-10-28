@@ -4,6 +4,7 @@ import { fetchRandomUsers } from '@services/api/random-user';
 import styles from './userList.module.scss';
 import { useUserListPaginationStore } from '../../contexts/UserListPaginationContext';
 import Stack from '@layouts/Stack';
+import UserCardSkeleton from '@components/UserCard/skeleton';
 
 export const useRandomUsers = (page: number) =>
     useQuery(['users', page], () => fetchRandomUsers(page), {
@@ -13,12 +14,18 @@ export const useRandomUsers = (page: number) =>
 
 const UserList = () => {
     const page = useUserListPaginationStore((state) => state.page);
-    const { data } = useRandomUsers(page);
+    const { data, isFetching } = useRandomUsers(page);
     return (
         <div className={styles.user_list_cont}>
-            {data?.results?.map((user) => (
-                <UserCard key={user.name.first + user.name.last} {...user} />
-            ))}
+            {isFetching ? (
+                <>
+                    <UserCardSkeleton />
+                    <UserCardSkeleton />
+                    <UserCardSkeleton />
+                </>
+            ) : (
+                data?.results?.map((user) => <UserCard key={user.name.first + user.name.last} {...user} />)
+            )}
         </div>
     );
 };
