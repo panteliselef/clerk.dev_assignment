@@ -1,4 +1,5 @@
 @use 'styles/design/base/base' as b;
+@use 'styles/design/base/breakpoints' as brk;
 @use 'styles/design/functions/convert' as c;
 
 .user_card {
@@ -6,15 +7,15 @@
         border-radius: 20px;
         border: 1px solid var(--border-color);
         padding: 16px 24px;
-        gap: 10px;
-        margin: 1rem 0.5rem;
         background-color: rgb(var(--card-bg-color));
         color: rgb(var(--card-text-color));
 
-        flex: 0 0 calc(33.333% - 1rem);
+        width: 100%;
+        flex: 1 1 100%;
 
-        * {
-            text-align: center;
+        @include brk.tablet {
+            width: calc(30% - 1rem);
+            flex: 1 1 calc(30% - 1rem);
         }
     }
 

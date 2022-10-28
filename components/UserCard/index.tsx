@@ -44,7 +44,6 @@ const UserCard: React.FC<RandomUser> = ({ name, email, location, phone, picture 
                 style={{
                     width: '100%',
                     position: 'relative',
-                    padding: '1rem',
                 }}
             >
                 <Stack
@@ -54,9 +53,21 @@ const UserCard: React.FC<RandomUser> = ({ name, email, location, phone, picture 
                     justifyContent={'space-between'}
                     style={{
                         fontSize: 12,
+                        position: 'relative',
                     }}
                 >
-                    {email}
+                    <span
+                        style={{
+                            width: '100%',
+                            maxWidth: '90%',
+                            whiteSpace: 'nowrap',
+                            overflow: 'hidden',
+                            textOverflow: 'ellipsis',
+                            flex: '1 1 100px',
+                        }}
+                    >
+                        {email}
+                    </span>
                     <ExternalLink href={`mailto://${email}`} className={styles.user_card_button}>
                         <span
                             style={{
@@ -100,6 +111,7 @@ const UserCard: React.FC<RandomUser> = ({ name, email, location, phone, picture 
                     justifyContent={'space-between'}
                     style={{
                         fontSize: 12,
+                        position: 'relative',
                     }}
                 >
                     {phone}

@@ -8,6 +8,7 @@
         max-width: 1000px;
         padding: 0 1rem;
         width: 100%;
+        gap: 1rem;
 
         @include brk.tablet {
             flex-direction: row;
