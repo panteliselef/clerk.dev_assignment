@@ -34,5 +34,10 @@
 
     &_button {
         @include b.button_base;
+
+        &:focus {
+            outline: var(--card-text-color) solid 2px;
+            outline-offset: 2px;
+        }
     }
 }
