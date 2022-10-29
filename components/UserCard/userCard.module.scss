@@ -14,7 +14,12 @@
         width: 100%;
         flex: 1 1 100%;
 
-        @include brk.tablet {
+        @include brk.mobile-xl {
+            width: calc(65% - 1rem);
+            flex: 1 1 calc(65% - 1rem);
+        }
+
+        @include brk.tablet2 {
             width: calc(30% - 1rem);
             flex: 1 1 calc(30% - 1rem);
         }
@@ -42,6 +47,8 @@
     }
 
     &_name {
+        width: 100%;
+        max-width: 90%;
         font-size: c.pxToRem(20);
         font-weight: 600;
         margin: 0;

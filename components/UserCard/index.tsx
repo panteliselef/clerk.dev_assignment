@@ -5,20 +5,28 @@ import classNames from 'classnames';
 import Image from 'next/image';
 import ExternalLink from '@components/ExternalLink';
 import Stack from '@layouts/Stack';
-import GlobeIcon from '@components/icons/GlobeIcon';
 import { useGoogleMapsLink } from '@hooks/useGoogleMapsLink';
 import EmailIcon from '@components/icons/EmailIcon';
 import PhoneIcon from '@components/icons/PhoneIcon';
 
 const UserCardImage: React.FC<Pick<RandomUser, 'picture' | 'name'>> = ({ picture, name }) => (
     <div style={{ position: 'relative' }}>
-        <Image width={60} height={60} src={picture.large} alt={'wow'} className={styles.user_card_img} />
-        <span className={styles.user_card_pill}>{name.title}</span>
+        <Image
+            width={60}
+            height={60}
+            src={picture.large}
+            alt={`profile pic for user ${name.first}`}
+            className={styles.user_card_img}
+        />
+        <span aria-label={name.title} className={styles.user_card_pill}>
+            {name.title}
+        </span>
     </div>
 );
 
 const UserLocation: React.FC<Pick<RandomUser, 'location'>> = ({ location }) => {
     const locationUrl = useGoogleMapsLink(location);
+    const txt = `${location.country}, ${location.country}`;
     return (
         <ExternalLink
             href={locationUrl}
@@ -27,14 +35,8 @@ const UserLocation: React.FC<Pick<RandomUser, 'location'>> = ({ location }) => {
                 gap: '5px',
             }}
         >
-            <GlobeIcon
-                width={18}
-                style={{
-                    stroke: 'rgb(var(--card-text-color))',
-                }}
-            />
-            <span>
-                {location.city}, {location.country}
+            <span aria-label={txt} title={txt}>
+                {txt}
             </span>
         </ExternalLink>
     );
@@ -53,12 +55,12 @@ const UserCTA: React.FC<{ label: string; url: string; icon: JSX.Element }> = ({ 
             }}
         >
             <span
+                title={label}
+                aria-label={label}
+                className={'text-ellipsis'}
                 style={{
                     width: '100%',
                     maxWidth: '90%',
-                    whiteSpace: 'nowrap',
-                    overflow: 'hidden',
-                    textOverflow: 'ellipsis',
                     flex: '1 1 100px',
                 }}
             >
@@ -83,14 +85,23 @@ const UserCTA: React.FC<{ label: string; url: string; icon: JSX.Element }> = ({ 
 const UserCard: React.FC<RandomUser> = ({ name, email, location, phone, picture }) => {
     return (
         <div className={classNames(styles.user_card_cont, 'v-flex align-center')}>
-            <UserCardImage picture={picture} name={name} />
+            <Stack
+                direction={'row'}
+                gap={'16px'}
+                alignItems={'center'}
+                style={{
+                    width: '100%',
+                }}
+            >
+                <UserCardImage picture={picture} name={name} />
 
-            <Stack direction={'column'} alignItems={'center'} gap={3}>
-                <p className={classNames(styles.user_card_name)}>
-                    {name.first} {name.last}
-                </p>
+                <Stack direction={'column'} gap={3}>
+                    <p aria-label={`${name.first} ${name.last}`} className={classNames(styles.user_card_name)}>
+                        {name.first} {name.last}
+                    </p>
 
-                <UserLocation location={location} />
+                    <UserLocation location={location} />
+                </Stack>
             </Stack>
 
             <Stack

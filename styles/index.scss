@@ -94,3 +94,10 @@ a {
 .weight_600 {
     font-weight: 600;
 }
+
+.text-ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+}

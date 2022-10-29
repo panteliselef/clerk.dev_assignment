@@ -46,7 +46,7 @@ export const useUserListPaginationStore = create<{
     hasNextPage: boolean;
 }>()(
     subscribeWithSelector((set, get) => ({
-        page: 0,
+        page: 1,
         hasNextPage: true,
         hasPrevPage: false,
         prevPage: () => set(() => ({ page: Math.max(minLimit, get().page - 1) })),

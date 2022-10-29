@@ -5,13 +5,15 @@
         display: flex;
         justify-content: space-between;
         flex-direction: column;
+        align-items: center;
         max-width: 1000px;
         padding: 0 1rem;
         width: 100%;
         gap: 1rem;
 
-        @include brk.tablet {
+        @include brk.tablet2 {
             flex-direction: row;
+            align-items: unset;
         }
     }
 }
