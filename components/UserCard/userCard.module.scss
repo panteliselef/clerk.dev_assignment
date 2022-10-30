@@ -16,12 +16,12 @@
 
         @include brk.mobile-xl {
             width: calc(65% - 1rem);
-            flex: 1 1 calc(65% - 1rem);
+            flex: 0 0 calc(65% - 1rem);
         }
 
         @include brk.tablet2 {
-            width: calc(30% - 1rem);
-            flex: 1 1 calc(30% - 1rem);
+            width: calc(33.33% - 1rem);
+            flex: 0 0 calc(33.33% - 1rem);
         }
     }
 
@@ -44,12 +44,13 @@
 
     &_location {
         font-size: c.pxToRem(12);
+        text-align: center;
     }
 
     &_name {
+        text-align: center;
         width: 100%;
-        max-width: 90%;
-        font-size: c.pxToRem(20);
+        font-size: c.pxToRem(16);
         font-weight: 600;
         margin: 0;
     }

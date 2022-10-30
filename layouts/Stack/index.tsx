@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import styles from './stack.module.scss';
 
 export interface StackProps extends React.HTMLProps<HTMLDivElement> {
-    direction: 'row' | 'column';
+    direction?: 'row' | 'column';
     alignItems?: 'flex-start' | 'flex-end' | 'start' | 'end' | 'center' | 'stretch';
     justifyContent?:
         | 'flex-start'

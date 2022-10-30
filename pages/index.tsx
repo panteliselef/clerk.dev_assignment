@@ -2,17 +2,18 @@ import Head from 'next/head';
 import Stack from '@layouts/Stack';
 import UserList, { UserListButtons } from '@modules/UserList';
 import { useWindowEvent } from '@hooks/useWindowEvent';
-import { useUserListPaginationStore } from '../contexts/UserListPaginationContext';
 import Hint from '@components/Hint';
 import ColorPicker from '@components/ColorPicker';
+import { useCarousel } from '@hooks/useCarousel';
 
 const useKeyboardPagination = () => {
+    const { scrollPrev, scrollNext } = useCarousel();
     useWindowEvent('keydown', (e) => {
         if (e.key === 'ArrowRight') {
-            useUserListPaginationStore.getState().nextPage();
+            scrollNext();
         }
         if (e.key === 'ArrowLeft') {
-            useUserListPaginationStore.getState().prevPage();
+            scrollPrev();
         }
     });
 };

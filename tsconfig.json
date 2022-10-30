@@ -19,6 +19,9 @@
       ],
       "@utils/*": [
         "utils/*"
+      ],
+      "@factory/*": [
+        "factory/*"
       ]
     },
     "target": "es5",
