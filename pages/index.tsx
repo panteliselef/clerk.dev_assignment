@@ -21,7 +21,13 @@ const useKeyboardPagination = () => {
 const HomeContent = () => {
     useKeyboardPagination();
     return (
-        <Stack direction={'column'} alignItems={'center'}>
+        <Stack
+            direction={'column'}
+            alignItems={'center'}
+            style={{
+                padding: '1rem 0',
+            }}
+        >
             <ColorPicker />
             <UserList />
             <UserListButtons />

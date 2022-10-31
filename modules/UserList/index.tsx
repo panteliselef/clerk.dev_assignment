@@ -6,6 +6,8 @@ import Stack from '@layouts/Stack';
 import UserCardSkeleton from '@components/UserCard/skeleton';
 import { useInView } from 'react-intersection-observer';
 import { useCarousel } from '@hooks/useCarousel';
+import { useDebouncedWidth } from '@hooks/useWindowDimensions';
+import breakpoints from '@utils/breakpoints';
 
 export const useRandomUsers = () =>
     useInfiniteQuery(
@@ -60,6 +62,9 @@ const UserList = () => {
 
 export const UserListButtons = () => {
     const { scrollPrev, scrollNext } = useCarousel();
+    const w = useDebouncedWidth();
+
+    if (w < breakpoints.tablet2) return null;
     return (
         <Stack
             direction={'row'}
