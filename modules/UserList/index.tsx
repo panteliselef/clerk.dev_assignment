@@ -30,7 +30,7 @@ export const useRandomUsers = () =>
 
 const UserList = () => {
     const { ref: carouselRef } = useCarousel();
-    const { data, isFetching, hasNextPage, isFetchingNextPage, fetchNextPage } = useRandomUsers();
+    const { data, isFetching, hasNextPage, isFetchingNextPage, fetchNextPage, isError } = useRandomUsers();
 
     const { ref } = useInView({
         /* Optional options */
@@ -47,6 +47,21 @@ const UserList = () => {
 
     return (
         <div ref={carouselRef} className={styles.user_list_cont}>
+            {isError && (
+                <p
+                    style={{
+                        border: '1px solid #C5283D',
+                        borderRadius: '4px',
+                        background: '#C5283D88',
+                        height: '100%',
+                        width: '100%',
+                        textAlign: 'center',
+                        padding: '2rem',
+                    }}
+                >
+                    Users are unavailable
+                </p>
+            )}
             {users && users.map((user) => <UserCard key={user.name.first + user.name.last} {...user} />)}
             {isFetching && (
                 <>

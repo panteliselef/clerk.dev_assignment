@@ -5,7 +5,6 @@ export const useWindowEvent = <WE extends keyof WindowEventMap>(
     handler: (event: WindowEventMap[WE]) => void,
 ) => {
     useEffect(() => {
-        console.log('attacthing event listener');
         // Define the listening target
         const targetElement = window;
 
@@ -13,7 +12,6 @@ export const useWindowEvent = <WE extends keyof WindowEventMap>(
 
         // Remove event listener on cleanup
         return () => {
-            console.log('removing event listener');
             targetElement.removeEventListener(eventName, handler);
         };
     }, [eventName, handler]);
