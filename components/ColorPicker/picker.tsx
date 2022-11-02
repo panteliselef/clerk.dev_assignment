@@ -1,53 +1,81 @@
 import classNames from 'classnames';
-import { useDebouncedCallback } from 'use-debounce';
-import { ChangeEventHandler, useCallback } from 'react';
-import { getContrastYIQ, hexToRgb, rgbObjToStr } from '@utils/colors';
-import { safely_read_localstorage, usePersistedColor } from '@components/ColorPicker/setup';
+import { HexColorInput, HexColorPicker } from 'react-colorful';
 
+import * as PopoverPrimitive from '@radix-ui/react-popover';
+
+const Popover = PopoverPrimitive.Root;
+const PopoverTrigger = PopoverPrimitive.Trigger;
+
+import styles from './picker.module.scss';
+import Stack from '@layouts/Stack';
+import { FC } from 'react';
+import { usePersistedColor, ColorSwatchCSSClass, ColorSwatch } from '.';
+import { initPersistedColors } from '@components/ColorPicker/setup';
+
+// Safe to call on the server
 if (typeof window !== 'undefined') {
-    safely_read_localstorage();
+    initPersistedColors();
 }
 
-const ColorPicker = () => {
+const presetColors = ['#cd9323', '#1a53d8', '#9a2151', '#0d6416', '#8d2808'];
+
+type ColorPicker = {
+    presetColors: Array<string>;
+    withInput: boolean;
+};
+
+const ColorPicker: FC<ColorPicker> = ({ presetColors, withInput }) => {
     const [color, setColor] = usePersistedColor();
-    const syncToLocalStorage = useDebouncedCallback(
-        ({ carTextColor, carBgColor }: { carBgColor: string; carTextColor: string }) => {
-            localStorage.setItem('carBgColor', carBgColor);
-            localStorage.setItem('carTextColor', carTextColor);
-        },
-        100,
-    );
-
-    const handleColorChange = useCallback<ChangeEventHandler<HTMLInputElement>>(
-        (e) => {
-            const r = document.querySelector(':root') as HTMLElement;
-            const carBgColor = rgbObjToStr(hexToRgb(e.target.value));
-            if (r) r.style.setProperty('--card-bg-color', carBgColor);
-
-            const textColor = getContrastYIQ(e.target.value) ? '0,0,0' : '255,255,255';
-            r.style.setProperty('--card-text-color', textColor);
-            syncToLocalStorage({
-                carBgColor,
-                carTextColor: textColor,
-            });
-
-            setColor(e.target.value);
-        },
-        [setColor, syncToLocalStorage],
-    );
 
     return (
-        <div
-            className={classNames('h-flex align-center')}
-            style={{
-                gap: '0.5rem',
-                padding: '1rem 0',
-            }}
-        >
-            <label htmlFor={'color_picker'}>Card background color:</label>
-            <input value={color} id={'color_picker'} type={'color'} onChange={handleColorChange} />
-        </div>
+        <Stack direction={'column'} gap={'1rem'} className={styles.color_picker}>
+            <Stack
+                direction={'row'}
+                gap={'1rem'}
+                alignItems={'center'}
+                justifyContent={'space-between'}
+                style={{
+                    gap: '1rem',
+                }}
+            >
+                <Stack
+                    direction={'row'}
+                    gap={4}
+                    style={{
+                        flex: '1 1 auto',
+                        flexWrap: 'wrap',
+                    }}
+                >
+                    {presetColors.map((color) => (
+                        <ColorSwatch key={color} color={color} onClick={() => setColor(color)} />
+                    ))}
+                </Stack>
+
+                {withInput && <HexColorInput color={color} onChange={setColor} className={styles.text_input} />}
+            </Stack>
+            <HexColorPicker color={color} onChange={setColor} className={styles.react_colorful} />
+        </Stack>
+    );
+};
+const ColorPickerPopover = () => {
+    return (
+        <Popover>
+            <PopoverPrimitive.Anchor
+                className={classNames('h-flex align-center')}
+                style={{
+                    gap: '0.5rem',
+                    textTransform: 'uppercase',
+                    fontSize: '0.875rem',
+                }}
+            >
+                Card background color <PopoverTrigger className={ColorSwatchCSSClass} />
+            </PopoverPrimitive.Anchor>
+            <PopoverPrimitive.Content sideOffset={5} className={styles.popover_content}>
+                <ColorPicker presetColors={presetColors} withInput={true} />
+                <PopoverPrimitive.Arrow />
+            </PopoverPrimitive.Content>
+        </Popover>
     );
 };
 
-export default ColorPicker;
+export default ColorPickerPopover;

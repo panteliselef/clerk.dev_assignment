@@ -7,8 +7,8 @@
         border-radius: 20px;
         border: 1px solid var(--border-color);
         padding: 16px 24px;
-        background-color: rgb(var(--card-bg-color));
-        color: rgb(var(--card-text-color));
+        background-color: var(--card-bg-color);
+        color: var(--card-text-color);
         gap: 15px;
 
         width: 100%;
@@ -31,8 +31,8 @@
         padding: 0.2rem 0.5rem;
         font-size: c.pxToRem(10);
         border-radius: 20px;
-        background-color: rgb(var(--card-text-color));
-        color: rgb(var(--card-bg-color));
+        background-color: var(--card-text-color);
+        color: var(--card-bg-color);
         left: 50%;
         transform: translateX(-50%);
     }
@@ -59,7 +59,7 @@
         @include b.button_base;
 
         &:focus {
-            outline: rgb(var(--card-text-color)) solid 2px;
+            outline: var(--card-text-color) solid 2px;
             outline-offset: 2px;
         }
     }

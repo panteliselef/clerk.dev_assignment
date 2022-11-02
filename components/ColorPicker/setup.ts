@@ -1,26 +1,41 @@
-import { bgFallback, parseRGBLocalStorage, RGB, rgbArrayToHex, textFallback } from '@utils/colors';
-import { useEffect, useState } from 'react';
+import { bgFallback, textFallback } from '@utils/colors';
 
-const syncFromLocalStorage = (): {
-    bg: RGB;
-    text: RGB;
+export const CSSVarBG = '--card-bg-color';
+export const CSSVarTEXT = '--card-text-color';
+
+export const LSkeyBG = 'cardBgColor' as const;
+export const LSkeyTEXT = 'cardTextColor' as const;
+
+const unsafe_read_localstorage = (): {
+    bg: string;
+    text: string;
 } => {
-    const bg = localStorage.getItem('carBgColor');
-    const text = localStorage.getItem('carTextColor');
-    const r = document.querySelector(':root') as HTMLElement;
-    if (r) r.style.setProperty('--card-bg-color', bg);
-    r.style.setProperty('--card-text-color', text);
+    const bg = localStorage.getItem(LSkeyBG);
+    const text = localStorage.getItem(LSkeyTEXT);
+
+    if (bg && text)
+        return {
+            bg,
+            text,
+        };
 
     return {
-        bg: parseRGBLocalStorage(bg),
-        text: parseRGBLocalStorage(text),
+        bg: bgFallback,
+        text: textFallback,
     };
 };
 
-export const safely_read_localstorage = () => {
+export const initPersistedColors = () => {
     try {
         if (typeof window !== 'undefined') {
-            return syncFromLocalStorage();
+            const { bg, text } = unsafe_read_localstorage();
+            const r = document.querySelector(':root') as HTMLElement;
+            if (r) r.style.setProperty(CSSVarBG, bg);
+            r.style.setProperty(CSSVarTEXT, text);
+            return {
+                bg,
+                text,
+            };
         }
         return {
             bg: bgFallback,
@@ -32,16 +47,4 @@ export const safely_read_localstorage = () => {
             text: textFallback,
         };
     }
-};
-
-export const usePersistedColor = () => {
-    const [color, setColor] = useState('#000000');
-    useEffect(() => {
-        const { bg } = safely_read_localstorage();
-        if (bg) {
-            setColor(rgbArrayToHex(bg));
-        }
-    }, []);
-
-    return [color, setColor] as const;
 };

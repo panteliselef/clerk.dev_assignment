@@ -3,8 +3,9 @@ import Stack from '@layouts/Stack';
 import UserList, { UserListButtons } from '@modules/UserList';
 import { useWindowEvent } from '@hooks/useWindowEvent';
 import Hint from '@components/Hint';
-import ColorPicker from '@components/ColorPicker';
 import { useCarousel } from '@hooks/useCarousel';
+import dynamic from 'next/dynamic';
+const ColorPickerPopover = dynamic(() => import('@components/ColorPicker'), { ssr: false });
 
 const useKeyboardPagination = () => {
     const { scrollPrev, scrollNext } = useCarousel();
@@ -26,9 +27,10 @@ const HomeContent = () => {
             alignItems={'center'}
             style={{
                 padding: '1rem 0',
+                gap: '2rem',
             }}
         >
-            <ColorPicker />
+            <ColorPickerPopover />
             <UserList />
             <UserListButtons />
         </Stack>

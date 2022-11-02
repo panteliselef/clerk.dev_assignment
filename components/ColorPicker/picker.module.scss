@@ -1,0 +1,30 @@
+.color_picker {
+    .react_colorful {
+        width: auto;
+        min-width: 200px;
+    }
+}
+
+.text_input {
+    display: block;
+    box-sizing: border-box;
+    width: 90px;
+    padding: 6px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    color: var(--text-color);
+    background: var(--bg-color);
+    font: inherit;
+    text-transform: uppercase;
+    text-align: center;
+    position: relative;
+}
+
+.popover_content {
+    max-width: 240px;
+    background-color: var(--bg-color);
+    z-index: 99;
+    border: 1px solid var(--border-color);
+    padding: 1rem;
+    border-radius: 8px;
+}

@@ -13,8 +13,8 @@
         border: 1px solid var(--border-color);
         padding: 16px 24px;
         gap: 10px;
-        background-color: rgb(var(--card-bg-color));
-        color: rgb(var(--card-text-color));
+        background-color: var(--card-bg-color);
+        color: var(--card-text-color);
 
         width: 100%;
         flex: 1 1 100%;
