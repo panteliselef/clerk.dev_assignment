@@ -77,6 +77,7 @@ const UserList = () => {
 
 export const UserListButtons = () => {
     const { scrollPrev, scrollNext } = useCarousel();
+    const { isError } = useRandomUsers();
     const w = useDebouncedWidth();
 
     if (w < breakpoints.tablet2) return null;
@@ -89,8 +90,12 @@ export const UserListButtons = () => {
             alignItems={'center'}
             justifyContent={'space-between'}
         >
-            <button onClick={scrollPrev}>Prev</button>
-            <button onClick={scrollNext}>Next</button>
+            <button disabled={isError} onClick={scrollPrev}>
+                Prev
+            </button>
+            <button disabled={isError} onClick={scrollNext}>
+                Next
+            </button>
         </Stack>
     );
 };
