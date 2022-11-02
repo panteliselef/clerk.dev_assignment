@@ -4,12 +4,15 @@
     &_cont {
         display: flex;
         justify-content: flex-start;
-        flex-direction: column;
+        flex-direction: row;
+        flex-wrap: nowrap;
         align-items: center;
         max-width: 1000px;
         padding: 0 1rem;
         width: 100%;
         gap: 1rem;
+
+        scroll-snap-type: x mandatory;
 
         overflow: auto;
 

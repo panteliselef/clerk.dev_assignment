@@ -12,7 +12,9 @@
         gap: 15px;
 
         width: 100%;
-        flex: 1 1 100%;
+        flex: 0 0 100%;
+
+        scroll-snap-align: center;
 
         @include brk.mobile-xl {
             width: calc(65% - 1rem);
