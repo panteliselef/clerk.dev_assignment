@@ -1,26 +1,11 @@
 import Head from 'next/head';
 import Stack from '@layouts/Stack';
 import UserList, { UserListButtons } from '@modules/UserList';
-import { useWindowEvent } from '@hooks/useWindowEvent';
 import Hint from '@components/Hint';
-import { useCarousel } from '@hooks/useCarousel';
 import dynamic from 'next/dynamic';
 const ColorPickerPopover = dynamic(() => import('@components/ColorPicker'), { ssr: false });
 
-const useKeyboardPagination = () => {
-    const { scrollPrev, scrollNext } = useCarousel();
-    useWindowEvent('keydown', (e) => {
-        if (e.key === 'ArrowRight') {
-            scrollNext();
-        }
-        if (e.key === 'ArrowLeft') {
-            scrollPrev();
-        }
-    });
-};
-
 const HomeContent = () => {
-    useKeyboardPagination();
     return (
         <Stack
             direction={'column'}

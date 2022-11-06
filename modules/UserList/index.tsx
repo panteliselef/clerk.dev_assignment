@@ -1,32 +1,28 @@
 import UserCard from '@components/UserCard';
-import { useInfiniteQuery } from '@tanstack/react-query';
-import { fetchRandomUsers, RandomUser } from '@services/api/random-user';
 import styles from './userList.module.scss';
 import Stack from '@layouts/Stack';
 import UserCardSkeleton from '@components/UserCard/skeleton';
 import { useInView } from 'react-intersection-observer';
-import { useCarousel } from '@hooks/useCarousel';
+import { useCarousel, useCarouselKeyboardEvents } from '@hooks/useCarousel';
 import { useDebouncedWidth } from '@hooks/useWindowDimensions';
 import breakpoints from '@utils/breakpoints';
+import { useRandomUsers } from '@modules/UserList/useRandomUsers';
 
-export const useRandomUsers = () =>
-    useInfiniteQuery(
-        ['users'],
-        async ({ pageParam = 1 }) => {
-            const data = await fetchRandomUsers(pageParam, 10);
-            if (!data) {
-                throw new Error('Users not found');
-            }
-
-            return {
-                nextPage: pageParam + 1,
-                data: data.results as RandomUser[],
-            };
-        },
-        {
-            getNextPageParam: ({ nextPage }) => (nextPage <= 10 ? nextPage : undefined),
-        },
-    );
+const UserListError = () => (
+    <p
+        style={{
+            border: '1px solid #C5283D',
+            borderRadius: '4px',
+            background: '#C5283D88',
+            height: '100%',
+            width: '100%',
+            textAlign: 'center',
+            padding: '2rem',
+        }}
+    >
+        Users are unavailable
+    </p>
+);
 
 const UserList = () => {
     const { ref: carouselRef } = useCarousel();
@@ -47,21 +43,7 @@ const UserList = () => {
 
     return (
         <div ref={carouselRef} className={styles.user_list_cont}>
-            {isError && (
-                <p
-                    style={{
-                        border: '1px solid #C5283D',
-                        borderRadius: '4px',
-                        background: '#C5283D88',
-                        height: '100%',
-                        width: '100%',
-                        textAlign: 'center',
-                        padding: '2rem',
-                    }}
-                >
-                    Users are unavailable
-                </p>
-            )}
+            {isError && <UserListError />}
             {users && users.map((user) => <UserCard key={user.name.first + user.name.last} {...user} />)}
             {isFetching && (
                 <>
@@ -76,7 +58,7 @@ const UserList = () => {
 };
 
 export const UserListButtons = () => {
-    const { scrollPrev, scrollNext } = useCarousel();
+    const { scrollPrev, scrollNext } = useCarouselKeyboardEvents();
     const { isError } = useRandomUsers();
     const w = useDebouncedWidth();
 
@@ -90,7 +72,7 @@ export const UserListButtons = () => {
             alignItems={'center'}
             justifyContent={'space-between'}
         >
-            <button disabled={isError} onClick={scrollPrev}>
+            <button data-testid="custom-element" disabled={isError} onClick={scrollPrev}>
                 Prev
             </button>
             <button disabled={isError} onClick={scrollNext}>

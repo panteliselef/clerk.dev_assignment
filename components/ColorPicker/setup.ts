@@ -1,5 +1,7 @@
 import { bgFallback, textFallback } from '@utils/colors';
 
+export const presetColors = ['#cd9323', '#1a53d8', '#9a2151', '#0d6416', '#8d2808'];
+
 export const CSSVarBG = '--card-bg-color';
 export const CSSVarTEXT = '--card-text-color';
 

@@ -1,0 +1,358 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<UserList /> Display 2 user cards 1`] = `
+<div
+  className="user_list_cont"
+>
+  <div
+    className="user_card_cont v-flex align-center"
+  >
+    <div
+      style={
+        {
+          "position": "relative",
+        }
+      }
+    >
+      <img
+        alt="profile pic for user Laura"
+        className="user_card_img"
+        data-nimg="1"
+        decoding="async"
+        height={60}
+        loading="lazy"
+        onError={[Function]}
+        onLoad={[Function]}
+        src="/_next/image?url=https%3A%2F%2Frandomuser.me%2Fapi%2Fportraits%2Fwomen%2F88.jpg&w=128&q=75"
+        srcSet="/_next/image?url=https%3A%2F%2Frandomuser.me%2Fapi%2Fportraits%2Fwomen%2F88.jpg&w=64&q=75 1x, /_next/image?url=https%3A%2F%2Frandomuser.me%2Fapi%2Fportraits%2Fwomen%2F88.jpg&w=128&q=75 2x"
+        style={
+          {
+            "color": "transparent",
+          }
+        }
+        width={60}
+      />
+      <span
+        aria-label="Miss"
+        className="user_card_pill"
+      >
+        Miss
+      </span>
+    </div>
+    <div
+      className=" asCol"
+      style={
+        {
+          "alignItems": undefined,
+          "gap": 3,
+          "justifyContent": undefined,
+          "width": "100%",
+        }
+      }
+    >
+      <p
+        aria-label="Laura Woods"
+        className="user_card_name"
+      >
+        Laura
+         
+        Woods
+      </p>
+      <a
+        className="user_card_location"
+        href="https://maps.google.com/?q=2479 Henry Street, Blessington, Wexford, 78276"
+        rel="noopener noreferrer"
+        tabIndex={1}
+        target="_blank"
+      >
+        Ireland, Ireland
+      </a>
+    </div>
+    <div
+      className=" asRow as_row_tablet_col"
+      style={
+        {
+          "alignItems": undefined,
+          "gap": 10,
+          "justifyContent": undefined,
+          "width": "100%",
+        }
+      }
+    >
+      <a
+        className="user_card_button"
+        href="mailto://laura.woods@example.com"
+        rel="noopener noreferrer"
+        style={
+          {
+            "flex": "1 1 100px",
+          }
+        }
+        tabIndex={1}
+        target="_blank"
+      >
+        Email
+      </a>
+      <a
+        className="user_card_button"
+        href="tel://031-623-5189"
+        rel="noopener noreferrer"
+        tabIndex={1}
+        target="_blank"
+      >
+        <svg
+          className="w-6 h-6"
+          fill="none"
+          stroke="var(--text-color)"
+          strokeWidth="1.5"
+          viewBox="0 0 24 24"
+          width={20}
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M20.25 3.75v4.5m0-4.5h-4.5m4.5 0l-6 6m3 12c-8.284 0-15-6.716-15-15V4.5A2.25 2.25 0 014.5 2.25h1.372c.516 0 .966.351 1.091.852l1.106 4.423c.11.44-.054.902-.417 1.173l-1.293.97a1.062 1.062 0 00-.38 1.21 12.035 12.035 0 007.143 7.143c.441.162.928-.004 1.21-.38l.97-1.293a1.125 1.125 0 011.173-.417l4.423 1.106c.5.125.852.575.852 1.091V19.5a2.25 2.25 0 01-2.25 2.25h-2.25z"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </a>
+    </div>
+  </div>
+  <div
+    className="user_card_cont v-flex align-center"
+  >
+    <div
+      style={
+        {
+          "position": "relative",
+        }
+      }
+    >
+      <img
+        alt="profile pic for user Marten"
+        className="user_card_img"
+        data-nimg="1"
+        decoding="async"
+        height={60}
+        loading="lazy"
+        onError={[Function]}
+        onLoad={[Function]}
+        src="/_next/image?url=https%3A%2F%2Frandomuser.me%2Fapi%2Fportraits%2Fmen%2F1.jpg&w=128&q=75"
+        srcSet="/_next/image?url=https%3A%2F%2Frandomuser.me%2Fapi%2Fportraits%2Fmen%2F1.jpg&w=64&q=75 1x, /_next/image?url=https%3A%2F%2Frandomuser.me%2Fapi%2Fportraits%2Fmen%2F1.jpg&w=128&q=75 2x"
+        style={
+          {
+            "color": "transparent",
+          }
+        }
+        width={60}
+      />
+      <span
+        aria-label="Mr"
+        className="user_card_pill"
+      >
+        Mr
+      </span>
+    </div>
+    <div
+      className=" asCol"
+      style={
+        {
+          "alignItems": undefined,
+          "gap": 3,
+          "justifyContent": undefined,
+          "width": "100%",
+        }
+      }
+    >
+      <p
+        aria-label="Marten Faber"
+        className="user_card_name"
+      >
+        Marten
+         
+        Faber
+      </p>
+      <a
+        className="user_card_location"
+        href="https://maps.google.com/?q=6167 Grüner Weg, Falkenberg/Elster, Thüringen, 99553"
+        rel="noopener noreferrer"
+        tabIndex={1}
+        target="_blank"
+      >
+        Germany, Germany
+      </a>
+    </div>
+    <div
+      className=" asRow as_row_tablet_col"
+      style={
+        {
+          "alignItems": undefined,
+          "gap": 10,
+          "justifyContent": undefined,
+          "width": "100%",
+        }
+      }
+    >
+      <a
+        className="user_card_button"
+        href="mailto://marten.faber@example.com"
+        rel="noopener noreferrer"
+        style={
+          {
+            "flex": "1 1 100px",
+          }
+        }
+        tabIndex={1}
+        target="_blank"
+      >
+        Email
+      </a>
+      <a
+        className="user_card_button"
+        href="tel://0100-8354415"
+        rel="noopener noreferrer"
+        tabIndex={1}
+        target="_blank"
+      >
+        <svg
+          className="w-6 h-6"
+          fill="none"
+          stroke="var(--text-color)"
+          strokeWidth="1.5"
+          viewBox="0 0 24 24"
+          width={20}
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M20.25 3.75v4.5m0-4.5h-4.5m4.5 0l-6 6m3 12c-8.284 0-15-6.716-15-15V4.5A2.25 2.25 0 014.5 2.25h1.372c.516 0 .966.351 1.091.852l1.106 4.423c.11.44-.054.902-.417 1.173l-1.293.97a1.062 1.062 0 00-.38 1.21 12.035 12.035 0 007.143 7.143c.441.162.928-.004 1.21-.38l.97-1.293a1.125 1.125 0 011.173-.417l4.423 1.106c.5.125.852.575.852 1.091V19.5a2.25 2.25 0 01-2.25 2.25h-2.25z"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </a>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<UserList /> Display 3 skeletons on Loading 1`] = `
+<div
+  className="user_list_cont"
+>
+  <div
+    className="user_card_cont v-flex align-center"
+  >
+    <div
+      className="user_card_img user_card__skeleton_item"
+    />
+    <div
+      className="user_card_name user_card__skeleton_item"
+    />
+    <div
+      className="user_card_location user_card__skeleton_item"
+    />
+    <div
+      className=" asRow as_row_tablet_col"
+      style={
+        {
+          "alignItems": undefined,
+          "gap": "8px",
+          "justifyContent": undefined,
+          "width": "100%",
+        }
+      }
+    >
+      <div
+        className="user_card_button user_card__skeleton_item"
+      />
+      <div
+        className="user_card_button user_card__skeleton_item"
+      />
+    </div>
+  </div>
+  <div
+    className="user_card_cont v-flex align-center"
+  >
+    <div
+      className="user_card_img user_card__skeleton_item"
+    />
+    <div
+      className="user_card_name user_card__skeleton_item"
+    />
+    <div
+      className="user_card_location user_card__skeleton_item"
+    />
+    <div
+      className=" asRow as_row_tablet_col"
+      style={
+        {
+          "alignItems": undefined,
+          "gap": "8px",
+          "justifyContent": undefined,
+          "width": "100%",
+        }
+      }
+    >
+      <div
+        className="user_card_button user_card__skeleton_item"
+      />
+      <div
+        className="user_card_button user_card__skeleton_item"
+      />
+    </div>
+  </div>
+  <div
+    className="user_card_cont v-flex align-center"
+  >
+    <div
+      className="user_card_img user_card__skeleton_item"
+    />
+    <div
+      className="user_card_name user_card__skeleton_item"
+    />
+    <div
+      className="user_card_location user_card__skeleton_item"
+    />
+    <div
+      className=" asRow as_row_tablet_col"
+      style={
+        {
+          "alignItems": undefined,
+          "gap": "8px",
+          "justifyContent": undefined,
+          "width": "100%",
+        }
+      }
+    >
+      <div
+        className="user_card_button user_card__skeleton_item"
+      />
+      <div
+        className="user_card_button user_card__skeleton_item"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<UserList /> Display Error if fetching failed 1`] = `
+<div
+  className="user_list_cont"
+>
+  <p
+    style={
+      {
+        "background": "#C5283D88",
+        "border": "1px solid #C5283D",
+        "borderRadius": "4px",
+        "height": "100%",
+        "padding": "2rem",
+        "textAlign": "center",
+        "width": "100%",
+      }
+    }
+  >
+    Users are unavailable
+  </p>
+</div>
+`;
