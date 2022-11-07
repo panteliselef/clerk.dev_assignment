@@ -3,6 +3,7 @@ import Stack from '@layouts/Stack';
 import UserList from '@modules/UserList';
 import Hint from '@components/Hint';
 import dynamic from 'next/dynamic';
+import FixedContainer from '@layouts/FixedContainer/FixedContainer';
 
 const ColorPickerPopover = dynamic(() => import('@components/ColorPicker'), { ssr: false });
 const UserListDesktopNavigation = dynamic(
@@ -14,17 +15,21 @@ const UserListDesktopNavigation = dynamic(
 
 const HomeContent = () => {
     return (
-        <Stack
-            direction={'column'}
-            alignItems={'center'}
-            style={{
-                padding: '1rem 0',
-                gap: '2rem',
-            }}
-        >
-            <ColorPickerPopover />
-            <UserList />
-            <UserListDesktopNavigation />
+        <Stack direction={'column'} alignItems={'center'}>
+            <FixedContainer>
+                <Stack
+                    direction={'column'}
+                    alignItems={'center'}
+                    style={{
+                        padding: '1rem 0',
+                        gap: '2rem',
+                    }}
+                >
+                    <ColorPickerPopover />
+                    <UserList />
+                    <UserListDesktopNavigation />
+                </Stack>
+            </FixedContainer>
         </Stack>
     );
 };

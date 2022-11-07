@@ -11,14 +11,14 @@
         color: var(--card-text-color);
         gap: 15px;
 
-        width: 100%;
-        flex: 0 0 100%;
+        width: 95%;
+        flex: 0 0 95%;
 
         scroll-snap-align: center;
 
         @include brk.mobile-xl {
-            width: calc(65% - 1rem);
-            flex: 0 0 calc(65% - 1rem);
+            width: calc(75% - 1rem);
+            flex: 0 0 calc(75% - 1rem);
         }
 
         @include brk.tablet2 {
