@@ -1,11 +1,8 @@
 import UserCard from '@components/UserCard';
 import styles from './userList.module.scss';
-import Stack from '@layouts/Stack';
 import UserCardSkeleton from '@components/UserCard/skeleton';
 import { useInView } from 'react-intersection-observer';
-import { useCarousel, useCarouselKeyboardEvents } from '@hooks/useCarousel';
-import { useDebouncedWidth } from '@hooks/useWindowDimensions';
-import breakpoints from '@utils/breakpoints';
+import { useCarousel } from '@hooks/useCarousel';
 import { useRandomUsers } from '@modules/UserList/useRandomUsers';
 
 const UserListError = () => (
@@ -54,31 +51,6 @@ const UserList = () => {
             )}
             {hasNextPage && !isFetching && <UserCardSkeleton ref={ref} />}
         </div>
-    );
-};
-
-export const UserListButtons = () => {
-    const { scrollPrev, scrollNext } = useCarouselKeyboardEvents();
-    const { isError } = useRandomUsers();
-    const w = useDebouncedWidth();
-
-    if (w < breakpoints.tablet2) return null;
-    return (
-        <Stack
-            direction={'row'}
-            style={{
-                width: '100%',
-            }}
-            alignItems={'center'}
-            justifyContent={'space-between'}
-        >
-            <button data-testid="custom-element" disabled={isError} onClick={scrollPrev}>
-                Prev
-            </button>
-            <button disabled={isError} onClick={scrollNext}>
-                Next
-            </button>
-        </Stack>
     );
 };
 

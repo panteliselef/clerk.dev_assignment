@@ -1,9 +1,16 @@
 import Head from 'next/head';
 import Stack from '@layouts/Stack';
-import UserList, { UserListButtons } from '@modules/UserList';
+import UserList from '@modules/UserList';
 import Hint from '@components/Hint';
 import dynamic from 'next/dynamic';
+
 const ColorPickerPopover = dynamic(() => import('@components/ColorPicker'), { ssr: false });
+const UserListDesktopNavigation = dynamic(
+    () => import('@modules/UserList/UserListButtons').then((m) => m.UserListDesktopNavigation),
+    {
+        ssr: false,
+    },
+);
 
 const HomeContent = () => {
     return (
@@ -17,7 +24,7 @@ const HomeContent = () => {
         >
             <ColorPickerPopover />
             <UserList />
-            <UserListButtons />
+            <UserListDesktopNavigation />
         </Stack>
     );
 };
