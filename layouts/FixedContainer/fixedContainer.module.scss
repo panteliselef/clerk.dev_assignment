@@ -1,0 +1,7 @@
+@use 'styles/design/base/breakpoints' as brk;
+@use 'styles/design/functions/convert' as c;
+
+.fixed_container {
+    width: 100%;
+    max-width: 1000px;
+}

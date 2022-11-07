@@ -6,6 +6,7 @@
 
 @mixin button_base {
     @include m.h-flex;
+    display: inline-flex;
     cursor: pointer;
     align-items: center;
     justify-content: center;
@@ -20,9 +21,15 @@
     background: var(--bg-color);
     color: var(--text-color);
 
+    transition: border-color 0.2s ease-in-out, background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+
     &:focus {
-        outline: rgb(var(--card-bg-color)) solid 2px;
+        outline: rgb(var(-text-color)) solid 2px;
         outline-offset: 2px;
+    }
+
+    &:hover {
+        border-color: var(--text-color);
     }
 
     &:disabled {

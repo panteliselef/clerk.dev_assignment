@@ -1,29 +1,35 @@
 import Head from 'next/head';
 import Stack from '@layouts/Stack';
-import UserList, { UserListButtons } from '@modules/UserList';
-import { useWindowEvent } from '@hooks/useWindowEvent';
-import { useUserListPaginationStore } from '../contexts/UserListPaginationContext';
+import UserList from '@modules/UserList';
 import Hint from '@components/Hint';
-import ColorPicker from '@components/ColorPicker';
+import dynamic from 'next/dynamic';
+import FixedContainer from '@layouts/FixedContainer/FixedContainer';
 
-const useKeyboardPagination = () => {
-    useWindowEvent('keydown', (e) => {
-        if (e.key === 'ArrowRight') {
-            useUserListPaginationStore.getState().nextPage();
-        }
-        if (e.key === 'ArrowLeft') {
-            useUserListPaginationStore.getState().prevPage();
-        }
-    });
-};
+const ColorPickerPopover = dynamic(() => import('@components/ColorPicker'), { ssr: false });
+const UserListDesktopNavigation = dynamic(
+    () => import('@modules/UserList/UserListButtons').then((m) => m.UserListDesktopNavigation),
+    {
+        ssr: false,
+    },
+);
 
 const HomeContent = () => {
-    useKeyboardPagination();
     return (
         <Stack direction={'column'} alignItems={'center'}>
-            <ColorPicker />
-            <UserList />
-            <UserListButtons />
+            <FixedContainer>
+                <Stack
+                    direction={'column'}
+                    alignItems={'center'}
+                    style={{
+                        padding: '1rem 0',
+                        gap: '2rem',
+                    }}
+                >
+                    <ColorPickerPopover />
+                    <UserList />
+                    <UserListDesktopNavigation />
+                </Stack>
+            </FixedContainer>
         </Stack>
     );
 };

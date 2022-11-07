@@ -1,11 +1,11 @@
-import { RandomUserResults } from './types';
+import type { RandomUserResults } from './types';
 
 const fields = ['email', 'name', 'picture', 'phone', 'location', 'id'];
 
-const fieldsString = fields.join(',');
+export const fieldsString = fields.join(',');
 
 // This could also be stored as a .env variable
-const BASE_URL = 'https://randomuser.me';
+export const BASE_URL = 'https://randomuser.me';
 
 function typesafe_fetch<T>(url: string): Promise<T> {
     return fetch(url).then((response) => {

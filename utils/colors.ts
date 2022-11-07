@@ -1,14 +1,11 @@
-export type RGB = [number, number, number];
+/**
+ * Utils for manipulating colors
+ */
 
 export function getContrastYIQ(hexColor: string) {
-    const { r, g, b } = hexToRgb(hexColor);
+    const {r, g, b} = hexToRgb(hexColor);
     const yiq = (r * 299 + g * 587 + b * 114) / 1000;
     return yiq >= 128;
-}
-
-// https://stackoverflow.com/questions/11867545/change-text-color-based-on-brightness-of-the-covered-background-area
-export function rgbObjToStr({ r, g, b }: { r: number; g: number; b: number }) {
-    return `${r},${g},${b}`;
 }
 
 export function hexToRgb(hex: string) {
@@ -26,25 +23,5 @@ export function hexToRgb(hex: string) {
     };
 }
 
-export function numberToHex(c: number) {
-    const hex = c.toString(16);
-    return hex.padStart(2, '0');
-}
-
-export const bgFallback = [0, 0, 0] as RGB;
-export const textFallback = [255, 255, 255] as RGB;
-
-export const parseRGBLocalStorage = (rgb?: string | null) => {
-    if (!rgb) {
-        throw new Error('Invalid RGB string');
-    }
-    const candidate = rgb.split(',').map((n) => parseInt(n));
-    if (candidate.length !== 3) {
-        throw new Error('Invalid RGB string');
-    }
-    return candidate as RGB;
-};
-
-export function rgbArrayToHex(rgb: RGB) {
-    return `#${rgb.map(numberToHex).join('')}`;
-}
+export const bgFallback = '#000000';
+export const textFallback = '#ffffff';

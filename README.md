@@ -1,4 +1,6 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This is project is my implementation of
+this [assignment](https://www.notion.so/Clerk-frontend-assignment-61192c152234454eadd5384d21e63df5) from Clerk, and it
+is built with [Next.js](https://nextjs.org/).
 
 ## Getting Started
 
@@ -10,25 +12,58 @@ npm run dev
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+(for production, use `yarn build` and `yarn start`)
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+### Run with Docker
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+In case you want to run the app with Docker, I have created a Dockerfile and a docker-compose.yml file. For simplicity,
+I added the commands to the *package.json* file.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+The below command will build the app for production as a Next *standalone* application
 
-## Learn More
+```bash
+#Build and run with docker-compose
+yarn docker-compose:up
 
-To learn more about Next.js, take a look at the following resources:
+# ---- or ----
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+#Build the image
+yarn docker:build
+#Run the container on port 8080
+yarn docker:run
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Additional Information
 
-## Deploy on Vercel
+### Folder Structure
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- `pages` - Contains the pages of the application. Each page is a React component. The name of the file is the route of
+  the page.
+- `components` - Contains the small components of the application. Usually, these components are used in multiple pages.
+- `styles` - Contains the global styles of the application. The app is styled with SASS, and CSS modules. Breakpoints,
+  Typography and Color variables are defined there.
+- `utils` - Contains the helper functions or constants of the application. Simple functions for color manipulation, or
+  constants for the breakpoints are defined there.
+- `services` - Contains the services of the application. The services are responsible for the communication with the
+  backend.
+- `modules` - Contains the larger components of the application. Usually, these components are used as whole sections or
+  features.
+- `layouts` - Contains the layouts of the application. The layouts are used to wrap the pages and the modules. The
+  layouts are responsible for the global markup. Also contains helper components that affect the layout of their
+  children. F.e. `Stack` is a simple flexbox wrapper.
+- `hooks` - Contains the custom hooks of the application that are meant to be used globally.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+### Code formatting
+`.prettierrc.js` and `.eslintrc.js` files are added to the project to enforce code formatting.
+
+### Testing
+For testing I did not used a dedicated directory, but I added the tests to the same directory as the component.
+F.e. `Button.test.tsx` is the test file for the `Button.tsx` component.
+
+```bash
+#Run tests
+yarn test
+# ---- or ----
+yarn test:ci
+```

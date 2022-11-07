@@ -1,66 +1,58 @@
 import UserCard from '@components/UserCard';
-import { useQuery } from '@tanstack/react-query';
-import { fetchRandomUsers } from '@services/api/random-user';
 import styles from './userList.module.scss';
-import { useUserListPaginationStore } from '../../contexts/UserListPaginationContext';
-import Stack from '@layouts/Stack';
 import UserCardSkeleton from '@components/UserCard/skeleton';
+import { useInView } from 'react-intersection-observer';
+import { useCarousel } from '@hooks/useCarousel';
+import { useRandomUsers } from '@modules/UserList/useRandomUsers';
 
-export const useRandomUsers = (page: number) =>
-    useQuery(['users', page], () => fetchRandomUsers(page), {
-        keepPreviousData: true,
-        staleTime: 60 * 1000,
-    });
+const UserListError = () => (
+    <p
+        style={{
+            border: '1px solid #C5283D',
+            borderRadius: '4px',
+            background: '#C5283D88',
+            height: '100%',
+            width: '100%',
+            textAlign: 'center',
+            padding: '2rem',
+        }}
+    >
+        Users are unavailable
+    </p>
+);
 
 const UserList = () => {
-    const page = useUserListPaginationStore((state) => state.page);
-    const { data, isFetching } = useRandomUsers(page);
+    const { ref: carouselRef } = useCarousel();
+    const { data, isFetching, hasNextPage, isFetchingNextPage, fetchNextPage, isError } = useRandomUsers();
+
+    const { ref } = useInView({
+        /* Optional options */
+        threshold: 0,
+        triggerOnce: false,
+        async onChange(inView) {
+            if (inView && hasNextPage && !isFetchingNextPage) {
+                await fetchNextPage();
+            }
+        },
+    });
+
+    const users = data?.pages.map(({ data }) => data).flat();
+
     return (
-        <div className={styles.user_list_cont}>
-            {isFetching ? (
+        <div ref={carouselRef} className={styles.user_list_cont}>
+            {isError && <UserListError />}
+            {users && users.map((user) => <UserCard key={user.name.first + user.name.last} {...user} />)}
+            {isFetching && (
                 <>
                     <UserCardSkeleton />
                     <UserCardSkeleton />
                     <UserCardSkeleton />
                 </>
-            ) : (
-                data?.results?.map((user) => <UserCard key={user.name.first + user.name.last} {...user} />)
             )}
+
+            {/*This will trigger the next page to be fetched when the component is in the user's viewport*/}
+            {hasNextPage && !isFetching && <UserCardSkeleton ref={ref} />}
         </div>
-    );
-};
-
-const UserListPageCount = () => {
-    const page = useUserListPaginationStore((state) => state.page);
-    return <p>Page #{page}</p>;
-};
-
-export const UserListButtons = () => {
-    const { prevPage, nextPage, hasNextPage, hasPrevPage } = useUserListPaginationStore(
-        ({ prevPage, nextPage, hasNextPage, hasPrevPage }) => ({
-            prevPage,
-            nextPage,
-            hasNextPage,
-            hasPrevPage,
-        }),
-    );
-    return (
-        <Stack
-            direction={'row'}
-            style={{
-                width: '100%',
-            }}
-            alignItems={'center'}
-            justifyContent={'space-between'}
-        >
-            <button disabled={!hasPrevPage} onClick={prevPage}>
-                Prev
-            </button>
-            <UserListPageCount />
-            <button disabled={!hasNextPage} onClick={nextPage}>
-                Next
-            </button>
-        </Stack>
     );
 };
 

@@ -1,0 +1,433 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ColorPickerPopover/> should render display only the trigger 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="h-flex align-center"
+        style="gap: 0.5rem; text-transform: uppercase; font-size: 0.875rem;"
+      >
+        Card background color 
+        <button
+          aria-controls="radix-:r0:"
+          aria-expanded="false"
+          aria-haspopup="dialog"
+          class="swatch"
+          data-state="closed"
+          type="button"
+        />
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="h-flex align-center"
+      style="gap: 0.5rem; text-transform: uppercase; font-size: 0.875rem;"
+    >
+      Card background color 
+      <button
+        aria-controls="radix-:r0:"
+        aria-expanded="false"
+        aria-haspopup="dialog"
+        class="swatch"
+        data-state="closed"
+        type="button"
+      />
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`<ColorPickerPopover/> should render popover after click 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <span
+      data-radix-focus-guard=""
+      style="outline: none; opacity: 0; position: fixed; pointer-events: none;"
+      tabindex="0"
+    />
+    <div>
+      <div
+        class="h-flex align-center"
+        style="gap: 0.5rem; text-transform: uppercase; font-size: 0.875rem;"
+      >
+        Card background color 
+        <button
+          aria-controls="radix-:r1:"
+          aria-expanded="true"
+          aria-haspopup="dialog"
+          class="swatch"
+          data-state="open"
+          type="button"
+        />
+      </div>
+      <div
+        data-radix-popper-content-wrapper=""
+        style="position: fixed; left: 0px; top: 0px; transform: translate3d(0px, 5px, 0); min-width: max-content; --radix-popper-transform-origin: 0px 0px;"
+      >
+        <div
+          class="popover_content"
+          data-align="center"
+          data-side="bottom"
+          data-state="open"
+          id="radix-:r1:"
+          role="dialog"
+          style="--radix-popover-content-transform-origin: var(--radix-popper-transform-origin);"
+          tabindex="-1"
+        >
+          <div
+            class="color_picker asCol"
+            style="gap: 1rem;"
+          >
+            <div
+              class=" asRow as_row_tablet_col"
+              style="gap: 1rem; align-items: center; justify-content: space-between;"
+            >
+              <div
+                class=" asRow as_row_tablet_col"
+                style="gap: 4px; flex: 1 1 auto; flex-wrap: wrap;"
+              >
+                <button
+                  class="swatch"
+                  style="background-color: rgb(205, 147, 35);"
+                />
+                <button
+                  class="swatch"
+                  style="background-color: rgb(26, 83, 216);"
+                />
+                <button
+                  class="swatch"
+                  style="background-color: rgb(154, 33, 81);"
+                />
+                <button
+                  class="swatch"
+                  style="background-color: rgb(13, 100, 22);"
+                />
+                <button
+                  class="swatch"
+                  style="background-color: rgb(141, 40, 8);"
+                />
+              </div>
+              <input
+                class="text_input"
+                spellcheck="false"
+                value="000000"
+              />
+            </div>
+            <div
+              class="react-colorful react_colorful"
+            >
+              <div
+                class="react-colorful__saturation"
+                style="background-color: rgb(255, 0, 0);"
+              >
+                <div
+                  aria-label="Color"
+                  aria-valuetext="Saturation 0%, Brightness 0%"
+                  class="react-colorful__interactive"
+                  role="slider"
+                  tabindex="0"
+                >
+                  <div
+                    class="react-colorful__pointer react-colorful__saturation-pointer"
+                    style="top: 100%; left: 0%;"
+                  >
+                    <div
+                      class="react-colorful__pointer-fill"
+                      style="background-color: rgb(0, 0, 0);"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                class="react-colorful__hue react-colorful__last-control"
+              >
+                <div
+                  aria-label="Hue"
+                  aria-valuemax="360"
+                  aria-valuemin="0"
+                  aria-valuenow="0"
+                  class="react-colorful__interactive"
+                  role="slider"
+                  tabindex="0"
+                >
+                  <div
+                    class="react-colorful__pointer react-colorful__hue-pointer"
+                    style="top: 50%; left: 0%;"
+                  >
+                    <div
+                      class="react-colorful__pointer-fill"
+                      style="background-color: rgb(255, 0, 0);"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <span
+            style="position: absolute; top: 0px; transform-origin: center 0; transform: rotate(180deg); left: 0px;"
+          >
+            <svg
+              height="5"
+              preserveAspectRatio="none"
+              style="display: block;"
+              viewBox="0 0 30 10"
+              width="10"
+            >
+              <polygon
+                points="0,0 30,0 15,10"
+              />
+            </svg>
+          </span>
+        </div>
+      </div>
+    </div>
+    <span
+      data-radix-focus-guard=""
+      style="outline: none; opacity: 0; position: fixed; pointer-events: none;"
+      tabindex="0"
+    />
+  </body>,
+  "container": <div>
+    <div
+      class="h-flex align-center"
+      style="gap: 0.5rem; text-transform: uppercase; font-size: 0.875rem;"
+    >
+      Card background color 
+      <button
+        aria-controls="radix-:r1:"
+        aria-expanded="true"
+        aria-haspopup="dialog"
+        class="swatch"
+        data-state="open"
+        type="button"
+      />
+    </div>
+    <div
+      data-radix-popper-content-wrapper=""
+      style="position: fixed; left: 0px; top: 0px; transform: translate3d(0px, 5px, 0); min-width: max-content; --radix-popper-transform-origin: 0px 0px;"
+    >
+      <div
+        class="popover_content"
+        data-align="center"
+        data-side="bottom"
+        data-state="open"
+        id="radix-:r1:"
+        role="dialog"
+        style="--radix-popover-content-transform-origin: var(--radix-popper-transform-origin);"
+        tabindex="-1"
+      >
+        <div
+          class="color_picker asCol"
+          style="gap: 1rem;"
+        >
+          <div
+            class=" asRow as_row_tablet_col"
+            style="gap: 1rem; align-items: center; justify-content: space-between;"
+          >
+            <div
+              class=" asRow as_row_tablet_col"
+              style="gap: 4px; flex: 1 1 auto; flex-wrap: wrap;"
+            >
+              <button
+                class="swatch"
+                style="background-color: rgb(205, 147, 35);"
+              />
+              <button
+                class="swatch"
+                style="background-color: rgb(26, 83, 216);"
+              />
+              <button
+                class="swatch"
+                style="background-color: rgb(154, 33, 81);"
+              />
+              <button
+                class="swatch"
+                style="background-color: rgb(13, 100, 22);"
+              />
+              <button
+                class="swatch"
+                style="background-color: rgb(141, 40, 8);"
+              />
+            </div>
+            <input
+              class="text_input"
+              spellcheck="false"
+              value="000000"
+            />
+          </div>
+          <div
+            class="react-colorful react_colorful"
+          >
+            <div
+              class="react-colorful__saturation"
+              style="background-color: rgb(255, 0, 0);"
+            >
+              <div
+                aria-label="Color"
+                aria-valuetext="Saturation 0%, Brightness 0%"
+                class="react-colorful__interactive"
+                role="slider"
+                tabindex="0"
+              >
+                <div
+                  class="react-colorful__pointer react-colorful__saturation-pointer"
+                  style="top: 100%; left: 0%;"
+                >
+                  <div
+                    class="react-colorful__pointer-fill"
+                    style="background-color: rgb(0, 0, 0);"
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              class="react-colorful__hue react-colorful__last-control"
+            >
+              <div
+                aria-label="Hue"
+                aria-valuemax="360"
+                aria-valuemin="0"
+                aria-valuenow="0"
+                class="react-colorful__interactive"
+                role="slider"
+                tabindex="0"
+              >
+                <div
+                  class="react-colorful__pointer react-colorful__hue-pointer"
+                  style="top: 50%; left: 0%;"
+                >
+                  <div
+                    class="react-colorful__pointer-fill"
+                    style="background-color: rgb(255, 0, 0);"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <span
+          style="position: absolute; top: 0px; transform-origin: center 0; transform: rotate(180deg); left: 0px;"
+        >
+          <svg
+            height="5"
+            preserveAspectRatio="none"
+            style="display: block;"
+            viewBox="0 0 30 10"
+            width="10"
+          >
+            <polygon
+              points="0,0 30,0 15,10"
+            />
+          </svg>
+        </span>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

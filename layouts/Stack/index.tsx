@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import styles from './stack.module.scss';
 
 export interface StackProps extends React.HTMLProps<HTMLDivElement> {
-    direction: 'row' | 'column';
+    direction?: 'row' | 'column';
     alignItems?: 'flex-start' | 'flex-end' | 'start' | 'end' | 'center' | 'stretch';
     justifyContent?:
         | 'flex-start'
@@ -18,6 +18,9 @@ export interface StackProps extends React.HTMLProps<HTMLDivElement> {
     gap?: number | string;
 }
 
+/**
+ * Flexbox container with a direction, alignment and gap
+ */
 const Stack = forwardRef<HTMLDivElement, StackProps>(
     ({ style, justifyContent, children, direction, gap = 0, alignItems, ...props }, ref) => {
         return (

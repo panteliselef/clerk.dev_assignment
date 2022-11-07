@@ -5,8 +5,8 @@
     --header-color: rgba(255, 255, 255, 0.72);
     --text-color: #{c.$dark1};
 
-    --card-bg-color: 255, 255, 255;
-    --card-text-color: 0, 0, 0;
+    --card-bg-color: #fff;
+    --card-text-color: #000;
 
     --ascent-color: #{c.$green1};
     --navbar-height: 5.5rem;
@@ -22,10 +22,9 @@
         --bg-color: #{c.$dark1};
         --header-color: rgba(0, 0, 0, 0.72);
         --text-color: #{c.$light1};
-
-        --card-bg-color: 0, 0, 0;
-        --card-text-color: 255, 255, 255;
-
         --border-color: #2c2c2c;
+
+        --card-bg-color: #000;
+        --card-text-color: #fff;
     }
 }

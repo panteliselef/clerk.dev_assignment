@@ -5,7 +5,7 @@ export interface RandomUserResults {
 
 export interface RandomUser {
     name: Name;
-    location: Location;
+    location: RandomUserLocation;
     email: string;
     phone: string;
     picture: Picture;
@@ -21,14 +21,14 @@ export interface Name {
     last: string;
 }
 
-export interface Location {
+export interface RandomUserLocation {
     street: Street;
     city: string;
     state: string;
     country: string;
     postcode: number;
-    coordinates: Coordinates;
-    timezone: Timezone;
+    coordinates?: Coordinates;
+    timezone?: Timezone;
 }
 
 interface Street {

@@ -6,7 +6,6 @@ import Image from 'next/image';
 import ExternalLink from '@components/ExternalLink';
 import Stack from '@layouts/Stack';
 import { useGoogleMapsLink } from '@hooks/useGoogleMapsLink';
-import EmailIcon from '@components/icons/EmailIcon';
 import PhoneIcon from '@components/icons/PhoneIcon';
 
 const UserCardImage: React.FC<Pick<RandomUser, 'picture' | 'name'>> = ({ picture, name }) => (
@@ -28,103 +27,54 @@ const UserLocation: React.FC<Pick<RandomUser, 'location'>> = ({ location }) => {
     const locationUrl = useGoogleMapsLink(location);
     const txt = `${location.country}, ${location.country}`;
     return (
-        <ExternalLink
-            href={locationUrl}
-            className={classNames(styles.user_card_location, 'h-flex align-center')}
-            style={{
-                gap: '5px',
-            }}
-        >
-            <span aria-label={txt} title={txt}>
-                {txt}
-            </span>
+        <ExternalLink tabIndex={1} href={locationUrl} className={classNames(styles.user_card_location)}>
+            {txt}
         </ExternalLink>
-    );
-};
-
-const UserCTA: React.FC<{ label: string; url: string; icon: JSX.Element }> = ({ label, url, icon }) => {
-    return (
-        <Stack
-            direction={'row'}
-            gap={'8px'}
-            alignItems={'center'}
-            justifyContent={'space-between'}
-            style={{
-                fontSize: 12,
-                position: 'relative',
-            }}
-        >
-            <span
-                title={label}
-                aria-label={label}
-                className={'text-ellipsis'}
-                style={{
-                    width: '100%',
-                    maxWidth: '90%',
-                    flex: '1 1 100px',
-                }}
-            >
-                {label}
-            </span>
-            <ExternalLink href={url} className={styles.user_card_button}>
-                <span
-                    style={{
-                        position: 'absolute',
-                        width: '100%',
-                        height: '100%',
-                        left: 0,
-                        top: 0,
-                    }}
-                />
-                {icon}
-            </ExternalLink>
-        </Stack>
     );
 };
 
 const UserCard: React.FC<RandomUser> = ({ name, email, location, phone, picture }) => {
     return (
         <div className={classNames(styles.user_card_cont, 'v-flex align-center')}>
-            <Stack
-                direction={'row'}
-                gap={'16px'}
-                alignItems={'center'}
-                style={{
-                    width: '100%',
-                }}
-            >
-                <UserCardImage picture={picture} name={name} />
-
-                <Stack direction={'column'} gap={3}>
-                    <p aria-label={`${name.first} ${name.last}`} className={classNames(styles.user_card_name)}>
-                        {name.first} {name.last}
-                    </p>
-
-                    <UserLocation location={location} />
-                </Stack>
-            </Stack>
+            <UserCardImage picture={picture} name={name} />
 
             <Stack
                 direction={'column'}
                 gap={3}
                 style={{
                     width: '100%',
-                    position: 'relative',
                 }}
             >
-                <UserCTA label={email} url={`mailto://${email}`} icon={<EmailIcon width={20} />} />
+                <p aria-label={`${name.first} ${name.last}`} className={classNames(styles.user_card_name)}>
+                    {name.first} {name.last}
+                </p>
 
-                <hr
+                <UserLocation location={location} />
+            </Stack>
+
+            <Stack
+                direction={'row'}
+                gap={10}
+                style={{
+                    width: '100%',
+                }}
+            >
+                <ExternalLink
+                    href={`mailto://${email}`}
                     style={{
-                        border: '1px solid var(--border-color)',
-                        borderRadius: '10px',
-                        width: '100%',
+                        flex: '1 1 100px',
                     }}
-                />
+                    tabIndex={1}
+                    className={styles.user_card_button}
+                >
+                    Email
+                </ExternalLink>
 
-                <UserCTA label={phone} url={`tel://${phone}`} icon={<PhoneIcon width={20} />} />
+                <ExternalLink tabIndex={1} href={`tel://${phone}`} className={styles.user_card_button}>
+                    <PhoneIcon width={20} />
+                </ExternalLink>
             </Stack>
         </div>
     );
 };
-export default UserCard;
+export default React.memo(UserCard);

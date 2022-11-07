@@ -1,2 +1,2 @@
 export { fetchRandomUsers } from './query';
-export type { RandomUserResults, Location, RandomUser } from './types';
+export type { RandomUserResults, RandomUserLocation, RandomUser } from './types';

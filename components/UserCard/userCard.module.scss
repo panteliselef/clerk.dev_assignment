@@ -7,21 +7,23 @@
         border-radius: 20px;
         border: 1px solid var(--border-color);
         padding: 16px 24px;
-        background-color: rgb(var(--card-bg-color));
-        color: rgb(var(--card-text-color));
+        background-color: var(--card-bg-color);
+        color: var(--card-text-color);
         gap: 15px;
 
-        width: 100%;
-        flex: 1 1 100%;
+        width: 95%;
+        flex: 0 0 95%;
+
+        scroll-snap-align: center;
 
         @include brk.mobile-xl {
-            width: calc(65% - 1rem);
-            flex: 1 1 calc(65% - 1rem);
+            width: calc(75% - 1rem);
+            flex: 0 0 calc(75% - 1rem);
         }
 
         @include brk.tablet2 {
-            width: calc(30% - 1rem);
-            flex: 1 1 calc(30% - 1rem);
+            width: calc(33.33% - 1rem);
+            flex: 0 0 calc(33.33% - 1rem);
         }
     }
 
@@ -31,8 +33,8 @@
         padding: 0.2rem 0.5rem;
         font-size: c.pxToRem(10);
         border-radius: 20px;
-        background-color: rgb(var(--card-text-color));
-        color: rgb(var(--card-bg-color));
+        background-color: var(--card-text-color);
+        color: var(--card-bg-color);
         left: 50%;
         transform: translateX(-50%);
     }
@@ -44,12 +46,13 @@
 
     &_location {
         font-size: c.pxToRem(12);
+        text-align: center;
     }
 
     &_name {
+        text-align: center;
         width: 100%;
-        max-width: 90%;
-        font-size: c.pxToRem(20);
+        font-size: c.pxToRem(16);
         font-weight: 600;
         margin: 0;
     }
@@ -58,7 +61,7 @@
         @include b.button_base;
 
         &:focus {
-            outline: rgb(var(--card-text-color)) solid 2px;
+            outline: var(--card-text-color) solid 2px;
             outline-offset: 2px;
         }
     }
