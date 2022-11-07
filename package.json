@@ -10,7 +10,6 @@
     "test": "jest --watch",
     "test:ci": "jest --ci",
     "test:coverage": "jest --coverage",
-    "test:coverage:ci": "jest --coverage --ci",
     "docker:build": "docker build -t clerk-interview .",
     "docker:run": "docker run -p 8080:80 clerk-interview",
     "docker-compose:up": "docker-compose up --build"
