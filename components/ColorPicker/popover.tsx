@@ -9,6 +9,9 @@ import { presetColors } from '@components/ColorPicker/setup';
 const Popover = PopoverPrimitive.Root;
 const PopoverTrigger = PopoverPrimitive.Trigger;
 
+/**
+ * An accessible popover that contains the color picker
+ */
 const ColorPickerPopover = () => {
     return (
         <Popover>

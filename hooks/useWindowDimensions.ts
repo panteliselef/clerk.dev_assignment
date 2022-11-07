@@ -16,6 +16,9 @@ function getWindowDimensions() {
     };
 }
 
+/**
+ * Detects the *debounced* window width
+ */
 export function useDebouncedWidth() {
     const { width } = useWindowDimensions();
     return useDebounce(width, 100);
@@ -27,6 +30,9 @@ export function useDebouncedHeight() {
     return useDebounce(height, 100);
 }
 
+/**
+ * Detects the window dimensions and returns them
+ */
 export default function useWindowDimensions(): { width: number; height: number } {
     const [windowDimensions, setWindowDimensions] = useState({
         width: 0,

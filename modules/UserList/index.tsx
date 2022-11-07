@@ -49,6 +49,8 @@ const UserList = () => {
                     <UserCardSkeleton />
                 </>
             )}
+
+            {/*This will trigger the next page to be fetched when the component is in the user's viewport*/}
             {hasNextPage && !isFetching && <UserCardSkeleton ref={ref} />}
         </div>
     );

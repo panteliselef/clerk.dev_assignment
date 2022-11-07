@@ -1,4 +1,4 @@
-import { RandomUserResults } from './types';
+import type { RandomUserResults } from './types';
 
 const fields = ['email', 'name', 'picture', 'phone', 'location', 'id'];
 

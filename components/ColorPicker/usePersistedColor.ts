@@ -3,6 +3,11 @@ import { useDebouncedCallback } from 'use-debounce';
 import { bgFallback, getContrastYIQ, textFallback } from '@utils/colors';
 import { CSSVarBG, CSSVarTEXT, initPersistedColors, LSkeyBG, LSkeyTEXT } from '@components/ColorPicker/setup';
 
+/**
+ * Reads the persisted colors from localstorage
+ * Writes the updated colors to localstorage
+ * Updates the CSS variables with the new colors
+ */
 export const usePersistedColor = () => {
     const [color, setColor] = useState('#000000');
     useEffect(() => {

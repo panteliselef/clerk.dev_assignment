@@ -6,6 +6,10 @@ import breakpoints from '@utils/breakpoints';
 import ArrowLeft from '@components/icons/ArrowLeft';
 import ArrowRight from '@components/icons/ArrowRight';
 
+/**
+ * Complementary component to the UserList component
+ * navigates through the carousel
+ */
 const UserListButtons = () => {
     const { scrollPrev, scrollNext } = useCarouselKeyboardEvents();
     const { isError } = useRandomUsers();
@@ -44,6 +48,9 @@ const UserListButtons = () => {
 
 export default UserListButtons;
 
+/**
+ * Wrapper for UserListButtons to only show it on desktop
+ */
 export const UserListDesktopNavigation = () => {
     const w = useDebouncedWidth();
     if (w < breakpoints.tablet2) return null;

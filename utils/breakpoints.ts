@@ -1,3 +1,8 @@
+/**
+ * Useful for consistent breakpoints
+ * Values should match the ones in styles/.../_breakpoints.scss
+ */
+
 const breakpoints = {
     mobileXl: 480,
     tablet: 640,

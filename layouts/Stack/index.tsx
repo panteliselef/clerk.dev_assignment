@@ -18,6 +18,9 @@ export interface StackProps extends React.HTMLProps<HTMLDivElement> {
     gap?: number | string;
 }
 
+/**
+ * Flexbox container with a direction, alignment and gap
+ */
 const Stack = forwardRef<HTMLDivElement, StackProps>(
     ({ style, justifyContent, children, direction, gap = 0, alignItems, ...props }, ref) => {
         return (

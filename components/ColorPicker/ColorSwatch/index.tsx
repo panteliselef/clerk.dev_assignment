@@ -8,6 +8,10 @@ export type ColorSwatchProps = {
 
 export const ColorSwatchCSSClass = styles.swatch;
 
+/**
+ * A button styled as colored tile
+ * used as preview for the color picker
+ */
 const ColorSwatch: React.FC<ColorSwatchProps> = ({ color, onClick }) => {
     return (
         <button

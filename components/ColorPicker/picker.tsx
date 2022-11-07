@@ -7,6 +7,12 @@ import { initPersistedColors } from '@components/ColorPicker/setup';
 
 // Safe to call on the server
 if (typeof window !== 'undefined') {
+    /**
+     * Sync the color picker with the persisted color outside the React lifecycle\
+     * By doing this, we don't have to wait for React to hydrate the DOM
+     * That means we will read the persisted color almost instantly and not wait for the first render of
+     * a component to read from localStorage
+     */
     initPersistedColors();
 }
 
